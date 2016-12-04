@@ -66,7 +66,7 @@ public class Game extends Canvas implements Runnable {
 	public static final int TILE_BIT_SHIFT = 4;
 
 
-	public static String title = "Square Legacy PR: 0.6 | S: 3 | BUILD: 103";// [NEXT UPDATE TO 4]
+	public static String title = "Square Legacy PR: 0.6 | S: 3 | BUILD: 104";// [NEXT UPDATE TO 4]
 	public double xScroll, yScroll;
 	
 	public static Level level;
