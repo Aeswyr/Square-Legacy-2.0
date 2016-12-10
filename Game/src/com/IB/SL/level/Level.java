@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +30,8 @@ import com.IB.SL.entity.mob.PlayerMP;
 import com.IB.SL.entity.mob.bosses.CopperGuardian;
 import com.IB.SL.entity.mob.bosses.Occulus;
 import com.IB.SL.entity.mob.bosses.VoidBoss;
+import com.IB.SL.entity.mob.hostile.FrostSpirit;
+import com.IB.SL.entity.mob.hostile.PoisonZombie;
 import com.IB.SL.entity.mob.hostile.Slime;
 import com.IB.SL.entity.mob.hostile.UndeadCaster;
 import com.IB.SL.entity.mob.hostile.Zombie;
@@ -38,6 +41,7 @@ import com.IB.SL.entity.particle.DamageIndicator;
 import com.IB.SL.entity.particle.Particle;
 import com.IB.SL.entity.projectile.Projectile;
 import com.IB.SL.entity.spawner.Spawner;
+import com.IB.SL.entity.spawner.WallParticleSpawner;
 import com.IB.SL.graphics.Screen;
 import com.IB.SL.graphics.Weather.Rain;
 import com.IB.SL.level.tile.Tile;
@@ -406,7 +410,53 @@ Tile setTiles;
 			public boolean isRaining = false;
 			public Rain rain = new Rain();
 
+			
+	public int myRandom(int min, int max) {
+		Random rand = new Random();
+		return  random.nextInt((max - min) + 1) + min;
+	}
+			
+	HashMap<Mob, Integer> spawn = new HashMap<Mob, Integer>();
+	int  ji = 0;
 	public void update() {
+
+		spawn.put(new Zombie(-1, -1), 40);
+		spawn.put(new PoisonZombie(-1, -1), 60);
+		spawn.put(new FrostSpirit(-1, -1), 60);
+		
+		Mob minKey = null;
+		int minVal = Integer.MAX_VALUE;
+		for (Mob key : spawn.keySet()) {
+			int val = spawn.get(key);
+			if (val < minVal) {
+				minVal = val;
+				minKey = key;
+			}
+		}
+		
+		int lx = (int)(Game.getGame().getPlayer().x / 16) - (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
+		int rx = (int)(Game.getGame().getPlayer().x / 16) + (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
+		
+		int ty = (int)(Game.getGame().getPlayer().y / 16) - (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
+		int by = (int)(Game.getGame().getPlayer().y / 16) + (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
+		
+		
+	//	System.out.println(minVal);
+
+		
+		for (; ji < 10000; ji++) {
+
+			int sx = myRandom(lx, rx);
+			int sy = myRandom(ty, by);
+
+			System.out.println("X: " + sx + " Y: " + sy);
+
+			if (!returnTileXY(tile, sx, sy).solid()) {
+				add(new WallParticleSpawner((int) (sx * 16), (int) (sy * 16), 20000, 1, this));
+			}
+		}
+		
+		
 		if (Game.getGame().getLevel().isRaining) {
 			rain.update(false);
 		}
@@ -761,6 +811,15 @@ Tile setTiles;
 			System.out.println("ADDING: " + ((Item)e).name);
 		} else {
 			entities.add(e);
+			if (e instanceof Mob) {
+				try {
+				e.maxhealth *= (10 / ( 1 + Math.pow(Math.E, -0.1 * (Game.getGame().getPlayer().Lvl - 40)))) + 1;
+				//System.out.println(e.maxhealth);
+				e.mobhealth = e.maxhealth;
+				} catch (NullPointerException err) {
+					
+				}
+			}
 		}
 	}
 		
