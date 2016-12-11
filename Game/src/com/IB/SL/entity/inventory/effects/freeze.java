@@ -33,7 +33,7 @@ public class freeze extends Effect{
 		if (time % 30 == 0) {
 			
 		if (b > 40) {
-		b -= 20;
+			b -= 20;
 		}
 			time = 0;
 		}

@@ -45,6 +45,7 @@ public class PoisonZombie extends Mob{
 		this.id = 10;
 		this.name = "Poison Zombie";
 		this.speed = 0.5;
+		this.rarity = 6;
 		this.hostility = HOSTILITY.AGR;
 		sprite = Sprite.playerback;
 		this.effects = new ActiveEffects(7, this);

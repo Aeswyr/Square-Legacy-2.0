@@ -18,6 +18,7 @@ public class Horse extends Mob {
 	private AnimatedSprite animSprite = left;
 	double xa = 0;
 	double ya = 0;
+	final double ox, oy;
 	double time = 0;
 	public int fireRate = 0;
 	public static boolean justspawned = false;
@@ -28,6 +29,8 @@ public class Horse extends Mob {
 		this.mobhealth = 150;
 		this.x = x << 4;
 		this.y = y << 4;
+		this.ox = x;
+		this.oy = y;
 		this.name = "Horse";
 		this.invulnerable = true;
 		this.ySort = false;
@@ -85,7 +88,7 @@ public class Horse extends Mob {
 			walking = false;
 		}
 		
-		if (walking)
+		if (walking) 
 			animSprite.update();
 		else
 			animSprite.setFrame(0);

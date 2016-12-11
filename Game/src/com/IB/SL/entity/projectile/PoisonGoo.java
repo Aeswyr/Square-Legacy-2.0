@@ -5,6 +5,7 @@ import java.util.List;
 import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.effects.Poison;
 import com.IB.SL.entity.mob.PlayerMP;
+import com.IB.SL.entity.particle.slimeParticle;
 import com.IB.SL.graphics.Screen;
 import com.IB.SL.graphics.Sprite;
 
@@ -26,16 +27,30 @@ public class PoisonGoo extends Projectile{
 		this.id = 1;
 
 	}	
-	
+	int time2= 0;
 	public void update() {
 		time++;
 		List<PlayerMP> players = level.players;
 		PlayerCollision(players, this); 
+		time2++;
+		if (time2 % 10 == 0) { 
+			sprite = Sprite.rotate(sprite, Math.PI / 20.0 + random.nextInt());
+			level.add(new slimeParticle((int) (x + nx), (int) (y + ny - 4), 20, 4));
+		}
+		
+		if (time2 % 30 == 0) {
+			sprite = Sprite.resize(sprite, 0.8);
+			time2 = 0;
+		}
+		
 		if (level.tileCollision((int) (x + nx), (int) (y + ny), 4, -2, 8)) {		
 			//level.add(new WallParticleSpawner((int) (x + nx), (int) (y + ny), 2, 2, level));
 		//	Sound.Play(Sound.walkingSand, false);
 		//	level.add(new ParticleSpawner((int) level.getPlayerAt(0).getX(), (int)level.getPlayerAt(0).getY(), 2, 2, level));
 			 remove();
+			 
+			 
+
 	}
 
 		move();
@@ -68,15 +83,8 @@ public class PoisonGoo extends Projectile{
 		dist = Math.sqrt(Math.abs((xOrigin - x) * (xOrigin - x) + (yOrigin -y) * (yOrigin - y)));
 		return dist;
 	}
-int time2= 0;
+
 	public void render(Screen screen) {
-		time2++;
-		if (time2 % 40 == 0) { 
-			sprite = Sprite.rotate(sprite, Math.PI / 20.0 + random.nextInt());
-			
-		}
-		
-		
 		screen.renderProjectile((int)x - 8,(int)y - 14, this);
 	}
 }

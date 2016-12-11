@@ -38,7 +38,7 @@ public class SummonFamiliar extends Ability{
 	}
 	
 	public void renderAoE(Screen screen) {
-		screen.drawCir(Mouse.getX() / Game.scale, Mouse.getY() / Game.scale , 10, 0x0000FF, false);
+		screen.drawCir(Mouse.getX() / Game.scale, Mouse.getY() / Game.scale , 10, 0xff00FFFF, false);
 	//	Game.getGame().getLevel().drawAOE(screen, Mouse.getX() - (rad / 2), Mouse.getY() - (rad / 2), rad, 0xffFF00FF);	
 		
 	}

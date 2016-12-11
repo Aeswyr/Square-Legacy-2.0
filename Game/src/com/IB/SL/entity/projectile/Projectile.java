@@ -25,7 +25,8 @@ public abstract class Projectile extends EquipableItem{
 	public double x, y;
 	protected double nx, ny;
 	protected double distance;
-	protected double speed, range, damage;
+	protected double speed, range;
+	public double damage;
 	public double manaCost;
 	protected Clip collisionSound;
 	protected int ExpV;

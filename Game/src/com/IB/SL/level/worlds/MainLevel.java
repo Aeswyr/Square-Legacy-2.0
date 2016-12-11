@@ -9,6 +9,8 @@ import javax.imageio.ImageIO;
 import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.item.equipables.rings.PreciousRing;
 import com.IB.SL.entity.mob.Player;
+import com.IB.SL.entity.mob.hostile.FrostSpirit;
+import com.IB.SL.entity.mob.hostile.PoisonZombie;
 import com.IB.SL.entity.mob.hostile.Slime;
 import com.IB.SL.entity.mob.hostile.UndeadCaster;
 import com.IB.SL.entity.mob.hostile.Zombie;
@@ -74,8 +76,14 @@ public class MainLevel extends Level{
 	   }*/
 	
 	protected void loadLevel(String path) {
-		minimap_enabled = true;
-		Level.Overworld = true;
+		minimap_enabled  = true;
+		Overworld  = true;
+		SpawnList.clear();
+		SpawnList.add(new Zombie(-1, -1));
+		SpawnList.add(new PoisonZombie(-1, -1));
+		
+		SpawnTime_MOD = 280;
+		
 		try {
 			BufferedImage image = ImageIO.read(MainLevel.class.getResource(path));
 			System.out.println("Overlay Path: " + "/overlays" + path);

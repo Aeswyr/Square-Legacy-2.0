@@ -64,6 +64,8 @@ public abstract class Mob extends Entity implements Serializable {
 	public double stat_MDF;
 	public double stat_AGI;
 	
+	public int rarity = -1;
+	
 	public double stat_Health;
 	public double stat_Mana;
 	public double stat_Stam;

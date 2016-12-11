@@ -135,7 +135,7 @@ public class Sprite {
 	public static Sprite button_Default = new Sprite(108, 0, 0, SpriteSheet.buttonSet);
 	public static Sprite button_Push = new Sprite(108, 0, 1, SpriteSheet.buttonSet);
 
-	public static Sprite slimeyParticle = new Sprite(3, 0xAAAAAA);
+	public static Sprite slimeyParticle = new Sprite(3, 0xff01B601);
 
 	public static Sprite selectedAbility = new Sprite(20, 0, 0, SpriteSheet.abilitybox);
 	public static Sprite abilitybox = new Sprite(18, 0, 0, SpriteSheet.abilitybox2);
@@ -272,7 +272,7 @@ public class Sprite {
 	public static Sprite VoidCrook = new Sprite(16, 0, 15, SpriteSheet.spells);
 	public static Sprite Stygian = new Sprite(16, 0, 3, SpriteSheet.spells);
 	public static Sprite Contradiction = new Sprite(16, 0, 8, SpriteSheet.spells);
-	public static Sprite PoisonGoo = new Sprite(16, 6, 1, SpriteSheet.spells);
+	public static Sprite PoisonGoo = new Sprite(16, 10, 0, SpriteSheet.spells);
 	public static Sprite DemonOrb = new Sprite(16, 5, 2, SpriteSheet.spells);
 	
 	public static Sprite NullWave = new Sprite(32, 0, 0, SpriteSheet.ability_NullBoss);

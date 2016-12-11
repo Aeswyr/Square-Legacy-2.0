@@ -2,6 +2,7 @@ package com.IB.SL.level;
 
 import java.awt.Rectangle;
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -416,35 +417,53 @@ Tile setTiles;
 		return  random.nextInt((max - min) + 1) + min;
 	}
 			
-	HashMap<Mob, Integer> spawn = new HashMap<Mob, Integer>();
+	public ArrayList<Mob> SpawnList = new ArrayList<Mob>();
 	int  ji = 0;
+	public int SpawnTime = 0;
+	public int SpawnTime_MOD = 120;
 	public void update() {
-
-		spawn.put(new Zombie(-1, -1), 40);
-		spawn.put(new PoisonZombie(-1, -1), 60);
-		spawn.put(new FrostSpirit(-1, -1), 60);
 		
-		Mob minKey = null;
-		int minVal = Integer.MAX_VALUE;
-		for (Mob key : spawn.keySet()) {
-			int val = spawn.get(key);
-			if (val < minVal) {
-				minVal = val;
-				minKey = key;
+		
+		if (SpawnList.size() > 0) {
+		if (SpawnTime_MOD != -1) {				
+			SpawnTime++;
+		if (SpawnTime % SpawnTime_MOD == 0) {
+			int r1 = myRandom(0, SpawnList.size() - 1);
+			int r2 = myRandom(0, 10);
+
+			Mob m = SpawnList.get(r1);
+			if (m.rarity != -1) {
+				if (r2 >= m.rarity) {
+					try {
+						int lx = (int)(Game.getGame().getPlayer().x / 16) - (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
+						int rx = (int)(Game.getGame().getPlayer().x / 16) + (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
+						
+						int ty = (int)(Game.getGame().getPlayer().y / 16) - (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
+						int by = (int)(Game.getGame().getPlayer().y / 16) + (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
+						int sx = myRandom(lx, rx);
+						int sy = myRandom(ty, by);
+						Mob  mob = m.getClass().getConstructor(new Class[] {Integer.TYPE, Integer.TYPE}).newInstance(sx, sy);
+						if(!returnTileXY(tile, sx, sy).solid()) {
+							add(mob);							
+						}
+						System.out.println("ADDED: " + m);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 			}
+			SpawnTime = 0;
+			return;
+		}
+		}
 		}
 		
-		int lx = (int)(Game.getGame().getPlayer().x / 16) - (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
-		int rx = (int)(Game.getGame().getPlayer().x / 16) + (int)(((Game.getGame().getScreen().width / 16) / 2) + 8);
-		
-		int ty = (int)(Game.getGame().getPlayer().y / 16) - (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
-		int by = (int)(Game.getGame().getPlayer().y / 16) + (int)(((Game.getGame().getScreen().height / 16) / 2) + 5);
 		
 		
 	//	System.out.println(minVal);
 
 		
-		for (; ji < 10000; ji++) {
+	/*	for (; ji < 10000; ji++) {
 
 			int sx = myRandom(lx, rx);
 			int sy = myRandom(ty, by);
@@ -454,7 +473,7 @@ Tile setTiles;
 			if (!returnTileXY(tile, sx, sy).solid()) {
 				add(new WallParticleSpawner((int) (sx * 16), (int) (sy * 16), 20000, 1, this));
 			}
-		}
+		}*/
 		
 		
 		if (Game.getGame().getLevel().isRaining) {
@@ -1581,11 +1600,12 @@ public void resetLevelPostDeath(Player player) {
 			dmgInd = "" + Math.round(damage);
 		}
 		
-		System.out.println("Damage: " + damage);
         if (!player.invulnerable) {
         	if (Game.getGame().gameState != gameState.INGAME_A) {        		
+    			damage *= (7 / ( 1 + Math.pow(Math.E, -0.05 * (Game.getGame().getPlayer().Lvl - 40)))) + 1;
         	player.mobhealth -= (damage);
         	}
+        	System.out.println("Damage: " + damage);
 		try {
 			//add(new DamageIndicator((int)(player.getX()), (int)((y - 20)), 15, 1, dmgInd, 0xffDD0011));
 		} catch (Exception e) {

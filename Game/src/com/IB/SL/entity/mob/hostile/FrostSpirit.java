@@ -33,7 +33,7 @@ public class FrostSpirit extends Mob {
 	private GUI gui;
 
 	public FrostSpirit(int x, int y) {
-		this.maxhealth = 20;
+		this.maxhealth = 18;
 		this.mobhealth = this.maxhealth;
 		gui = new GUI();
 		this.Exp = 10;
@@ -42,6 +42,7 @@ public class FrostSpirit extends Mob {
 		this.id = 4218;
 		this.name = "Frost Spirit";
 		this.speed = 1.5;
+		this.rarity = 6;
 		this.hostility = HOSTILITY.AGR;
 		sprite = Sprite.playerback;
 		this.effects = new ActiveEffects(7, this);
@@ -50,11 +51,12 @@ public class FrostSpirit extends Mob {
 	public void stab() {
 		try {
 			List <Player> p = level.getPlayers(this, 20);
-			if (time % 30 == 0) {
+			if (time % 240 == 0) {
 			for (int i = 0; i < p.size(); i++) {
 				Game.getGame().getLevel().damagePlayer((int)x, (int)y, (PlayerMP)p.get(0), 0, 3, name, 0);
-						p.get(i).effects.addEffect(new freeze(p.get(i), 180));
+						p.get(i).effects.addEffect(new freeze(p.get(i), 100));
 					}
+				time = 0;
 			}
 		} catch (Exception e) {
 			
