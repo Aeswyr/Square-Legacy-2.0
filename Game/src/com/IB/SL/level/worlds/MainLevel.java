@@ -81,6 +81,8 @@ public class MainLevel extends Level{
 		SpawnList.clear();
 		SpawnList.add(new Zombie(-1, -1));
 		SpawnList.add(new PoisonZombie(-1, -1));
+		SpawnList.add(new UndeadCaster(-1, -1));
+
 		
 		SpawnTime_MOD = 280;
 		

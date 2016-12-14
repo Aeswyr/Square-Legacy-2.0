@@ -31,6 +31,7 @@ public class Horse extends Mob {
 		this.y = y << 4;
 		this.ox = x;
 		this.oy = y;
+		
 		this.name = "Horse";
 		this.invulnerable = true;
 		this.ySort = false;

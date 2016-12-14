@@ -34,6 +34,8 @@ public class Dungeon03 extends Level implements Serializable{
 	protected void loadLevel(String path) {
 		minimap_enabled = true;
 		Level.Overworld = false;
+		SpawnList.clear();
+		SpawnTime_MOD = -1;
 		/*try {
 			BufferedImage image = ImageIO.read(swampLevel.class.getResource(path));
 			int w = width = image.getWidth();

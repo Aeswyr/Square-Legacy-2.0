@@ -1108,7 +1108,7 @@ public int deathTimeSec = 0;
 		} else if (state == state.INGAME_A) {
 			switchedTo3 = true;
 		} else if (state == state.PAUSE) {
-			centreMouse();
+			//centreMouse();
 			 Sound.pauseOgg();
 		} else if (state == state.DEATH) {
 			centreMouse();

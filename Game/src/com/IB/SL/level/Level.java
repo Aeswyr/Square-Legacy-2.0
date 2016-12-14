@@ -444,9 +444,9 @@ Tile setTiles;
 						int sy = myRandom(ty, by);
 						Mob  mob = m.getClass().getConstructor(new Class[] {Integer.TYPE, Integer.TYPE}).newInstance(sx, sy);
 						if(!returnTileXY(tile, sx, sy).solid()) {
+							System.out.println("SpawnList-Adding: " + mob);
 							add(mob);							
 						}
-						System.out.println("ADDED: " + m);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

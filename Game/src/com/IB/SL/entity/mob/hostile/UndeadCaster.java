@@ -63,6 +63,7 @@ public class UndeadCaster extends Mob {
 		this.y = y << 4;
 		this.id = 7;
 		this.hostility = hostility.AGR;
+		this.rarity = 4;
 		this.name = "Undead Caster";
 		sprite = Sprite.playerback;
 		this.effects = new ActiveEffects(7, this);

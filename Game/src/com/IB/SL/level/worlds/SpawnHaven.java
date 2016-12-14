@@ -9,6 +9,8 @@ import javax.imageio.ImageIO;
 
 import com.IB.SL.Game;
 import com.IB.SL.entity.mob.Player;
+import com.IB.SL.entity.mob.hostile.PoisonZombie;
+import com.IB.SL.entity.mob.hostile.Zombie;
 import com.IB.SL.entity.mob.peaceful.Alice;
 import com.IB.SL.entity.mob.peaceful.Guard;
 import com.IB.SL.entity.mob.peaceful.Villager01;
@@ -46,6 +48,10 @@ public class SpawnHaven extends Level implements Serializable{
 	protected void loadLevel(String path) {
 		minimap_enabled = false;
 		Level.Overworld = false;
+		
+		SpawnList.clear();
+		SpawnTime_MOD = -1;
+		
 		try {
 			BufferedImage image = ImageIO.read(SpawnHaven.class.getResource(path));
 			System.out.println("Overlay Path: " + "/overlays" + path);

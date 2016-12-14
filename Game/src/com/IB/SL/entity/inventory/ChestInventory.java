@@ -2,6 +2,8 @@ package com.IB.SL.entity.inventory;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.item.Item;
@@ -185,7 +187,8 @@ public class ChestInventory implements Serializable{
 		return result;
 	}
 
-	
+	HashMap<String, Integer> recipeCount = new HashMap<String, Integer>();
+	String it = "-1ERR";
 	public void SlotChecking(int slot, Screen screen, Player player) {
 		String priceString = "Value";
 		int color = 0xff00FF00;
@@ -210,11 +213,32 @@ public class ChestInventory implements Serializable{
 			} else {
 				String rec = "";
 				for(int i = 0; i < items[slot].recipe.size(); i++) {
+					 it = items[slot].recipe.get(i);
+					if (recipeCount.containsKey(it)) {
+						recipeCount.put(it, recipeCount.get(it) + 1);						
+					} else {
+						recipeCount.put(it, 1);
+					}
+					//recipeCount.put("stick",20);
 					
-						rec += items[slot].recipe.get(i).toString() + "\n";
+				//	font8x8.render(200, 16 + (i * 12), -3, 0xff000000, items[slot].recipe.get(i).toString(), screen, false, false);
+					//	rec += items[slot].recipe.get(i).toString() + "\n";
+				//	recipeCount.clear();
+					
+				//	font8x8.render(208, 16 + (i * 12), -3, 0xff000000, it, screen, false, false);					
 				}
-				font8x8.render(200, 5, -3, 0xff000000, "REQUIRES:\n" + rec, screen, false, false);
+				int ind = 0;
+				for(Map.Entry<String, Integer> entry : recipeCount.entrySet()) {
+					ind++;
+					String key = entry.getKey();
+					Integer val = entry.getValue();
+					font8x8.render(200, 8 + (ind * 12), -3, 0xff000000, "("+val+") " + key, screen, false, false);					
+				}
+				ind = 0;
+				
+				font8x8.render(200, 5, -3, 0xff000000, "REQUIRES:\n"/*+ rec*/, screen, false, false);
 				screen.drawRect(205, 14, 88, 0, 0xff000000, false);
+				recipeCount.clear();
 			}
 		/*if (Mouse.getButton() == 3) {
 			removeByIndex(slot);
@@ -374,6 +398,7 @@ public class ChestInventory implements Serializable{
 		}
 	
 	public void renderBench(Screen screen, Player player) {
+		
 		screen.renderSheet(25, 37, SpriteSheet.ChestInventory, false);
 		screen.renderSprite(135, 55, Sprite.resize(Sprite.abilitybox, 3), false);
 		if (crafted != null) {

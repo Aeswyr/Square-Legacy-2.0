@@ -28,6 +28,9 @@ public class TutorialWorld extends Level implements Serializable{
 	protected void loadLevel(String path) {
 		minimap_enabled = true;
 		Level.Overworld = false;
+		
+		SpawnList.clear();
+		SpawnTime_MOD = -1;
 
 		try {
 			BufferedImage image = ImageIO.read(TutorialWorld.class.getResource(path));

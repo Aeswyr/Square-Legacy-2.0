@@ -1144,7 +1144,7 @@ public void render(Screen screen) {
 	this.abilities.selected.renderAoE(screen);
 	}
 	if(!setInvisible) {
-		if (swimming) {
+		if (swimming && this.ridingOn == null) {
 			screen.renderMobSpriteSwimming((int) (x - 8 + xOff), (int) (y - 15 + yOff),  sprite);
 		} else {
 			screen.renderMobSpriteUniversal((int) (x - 8 + xOff), (int) (y - 15 + yOff),  sprite);			

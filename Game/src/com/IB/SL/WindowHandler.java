@@ -1,15 +1,18 @@
 package com.IB.SL;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class WindowHandler implements WindowListener{
+public class WindowHandler implements WindowListener, FocusListener{
 	
 	private final Game game;
 	
 	public WindowHandler(Game game) {
 		this.game = game;
 		this.game.frame.addWindowListener(this);
+		this.game.addFocusListener(this);
 	}
 
 	@Override
@@ -26,6 +29,12 @@ public class WindowHandler implements WindowListener{
 	@Override
 	public void windowClosing(WindowEvent event) {
     
+	}
+	
+	@Override
+	public void focusLost(FocusEvent e) {
+		if (game.gameState == game.gameState.INGAME || game.gameState == game.gameState.INGAME_A)
+		game.switchState(game.gameState.PAUSE);	
 	}
 
 	@Override
@@ -44,6 +53,11 @@ public class WindowHandler implements WindowListener{
 
 	@Override
 	public void windowOpened(WindowEvent event) {
+	}
+
+	@Override
+	public void focusGained(FocusEvent e) {
+		
 	}
 
 }
