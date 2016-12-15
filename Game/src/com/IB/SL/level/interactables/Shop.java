@@ -444,18 +444,24 @@ public class Shop extends Interactable {
 				}
 						}
 				}}}
-
+	
+	boolean guiOpen = false;
+	protected int xoff = 0;
+	protected int yoff = 16;
 	public void OpenChest(Screen screen) {
-		List<PlayerMP> players = level.getPlayersFixed((int)this.x, (int) this.y + 16, 20);
-		if (level.getPlayersFixedBool((int)this.x, (int)this.y + 16, 20)) {
+		List<PlayerMP> players = level.getPlayersFixed((int)this.x + xoff, (int) this.y + yoff, 20);
+		if (level.getPlayersFixedBool((int)this.x + xoff, (int)this.y + yoff, 20)) {
 			
 			if (this.type == 1) {
 				animSprite = Blacksmith_still;
 			} else if (type == 3) {
 				animSprite.update();
 			}else if (type != 1 && type != 3){
-				animSprite.setFrame(faceframe);				
+				animSprite.setFrame(faceframe);
 			}
+			
+			guiOpen = true;
+			
 			for (int i = 0; i < players.size(); i++) {
 				if (type == 3) {
 					gui.renderName(screen, "The Void Grows Hungry", (int) x - 65, (int) y - 16, -3, true, true, true);
@@ -476,6 +482,7 @@ public class Shop extends Interactable {
 			if (this.type == 1) {
 				animSprite = Blacksmith;
 			}
+			guiOpen = true;
 		}
 	} 
 	

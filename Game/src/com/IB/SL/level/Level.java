@@ -150,6 +150,8 @@ public class Level implements Serializable {
 	int WoodWallHex = 0xffE5A969;
 	int SwirlyHex = 0xffFF70E9;
 	int DoorHex = 0xff000000;
+	int CounterHex = 0xff643100;
+	int CounterBHex = 0xff542800;
 
 	/**
 	 * Overworld
@@ -423,7 +425,7 @@ Tile setTiles;
 	public int SpawnTime_MOD = 120;
 	public void update() {
 		
-		
+	if (!Game.cmdln_args.containsKey("-nospawns")) {
 		if (SpawnList.size() > 0) {
 		if (SpawnTime_MOD != -1) {				
 			SpawnTime++;
@@ -457,7 +459,8 @@ Tile setTiles;
 		}
 		}
 		}
-		
+	}
+			
 		
 		
 	//	System.out.println(minVal);
@@ -620,8 +623,6 @@ Tile setTiles;
 			int yt = (y - c / 2 * size - yOffset) >> Game.TILE_BIT_SHIFT;
 			if (getTile(xt, yt).solidtwo())
 				solidtwo = true;
-
-			
 		}
 		return solidtwo;
 
@@ -829,7 +830,9 @@ Tile setTiles;
 			items.add((Item) e);
 			System.out.println("ADDING: " + ((Item)e).name);
 		} else {
+			if (!Game.cmdln_args.get("-nospawns")) {				
 			entities.add(e);
+			}
 			if (e instanceof Mob) {
 				try {
 				e.maxhealth *= (10 / ( 1 + Math.pow(Math.E, -0.1 * (Game.getGame().getPlayer().Lvl - 40)))) + 1;
@@ -1276,7 +1279,7 @@ Tile setTiles;
 		if (x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.VoidTile;
 		
-		if (tiles[x + y * width] == bitBrickHex)
+			if (tiles[x + y * width] == bitBrickHex)
 			   return Tile.bitBrick;
 			if (tiles[x + y * width] == bitMetalHex)
 			   return Tile.bitMetal;
@@ -1498,6 +1501,10 @@ Tile setTiles;
 			if (overlayTiles[x + y * width] == Bone) return Tile.bone;
 			if (overlayTiles[x + y * width] == DoorHex) return Tile.DoorTile;
 			if (overlayTiles[x + y * width] == 0) return Tile.crossbone;
+			if (overlayTiles[x + y * width] == CounterHex) return Tile.Counter;
+			if (overlayTiles[x + y * width] == CounterBHex) return Tile.CounterB;
+
+			
 
 		  return null;
 	//}

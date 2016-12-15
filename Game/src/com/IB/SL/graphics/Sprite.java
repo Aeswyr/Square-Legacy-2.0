@@ -131,6 +131,10 @@ public class Sprite {
 	public static Sprite StaminaBar18 = new Sprite(32, 0, 2, SpriteSheet.StaminaBar);
 	public static Sprite StaminaBar19 = new Sprite(32, 0, 1, SpriteSheet.StaminaBar);
 	public static Sprite StaminaBar20 = new Sprite(32, 0, 0, SpriteSheet.StaminaBar);
+	
+	public static Sprite CounterA = new Sprite(16, 0, 0, SpriteSheet.Counter);
+	public static Sprite CounterB = new Sprite(16, 1, 0, SpriteSheet.Counter);
+
 
 	public static Sprite button_Default = new Sprite(108, 0, 0, SpriteSheet.buttonSet);
 	public static Sprite button_Push = new Sprite(108, 0, 1, SpriteSheet.buttonSet);

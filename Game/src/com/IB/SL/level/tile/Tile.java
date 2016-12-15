@@ -13,6 +13,7 @@ import com.IB.SL.level.tile.overlays.Cactus;
 import com.IB.SL.level.tile.overlays.Castle;
 import com.IB.SL.level.tile.overlays.Cave;
 import com.IB.SL.level.tile.overlays.ColoredFlowers;
+import com.IB.SL.level.tile.overlays.Counter;
 import com.IB.SL.level.tile.overlays.Crossbone;
 import com.IB.SL.level.tile.overlays.DarkCastle;
 import com.IB.SL.level.tile.overlays.DirtPatch;
@@ -249,6 +250,8 @@ public class Tile {
 	public static Tile Anvil = new Anvil(Sprite.Anvil);
 	public static Tile Stove = new Stove(Sprite.Stove);
 	public static Tile OvVoidTile = new OvVoidTile(Sprite.VoidTile);
+	public static Tile Counter = new Counter(Sprite.CounterA);
+	public static Tile CounterB = new Counter(Sprite.CounterB);
 
 	//public static final int col_grass = 0xff00ff00;
 	//public static final int col_gmcsDOWN = 0xff00ff00;

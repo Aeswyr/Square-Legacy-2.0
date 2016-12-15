@@ -9,12 +9,12 @@ import javax.imageio.ImageIO;
 import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.item.equipables.rings.PreciousRing;
 import com.IB.SL.entity.mob.Player;
-import com.IB.SL.entity.mob.hostile.FrostSpirit;
 import com.IB.SL.entity.mob.hostile.PoisonZombie;
 import com.IB.SL.entity.mob.hostile.Slime;
 import com.IB.SL.entity.mob.hostile.UndeadCaster;
 import com.IB.SL.entity.mob.hostile.Zombie;
 import com.IB.SL.entity.mob.hostile.minions.Slimey;
+import com.IB.SL.entity.mob.npc.Waiter;
 import com.IB.SL.entity.mob.peaceful.Carraige;
 import com.IB.SL.entity.mob.peaceful.Guard;
 import com.IB.SL.entity.mob.peaceful.Horse;
@@ -151,6 +151,7 @@ public class MainLevel extends Level{
 		add(new Carraige(840, 170, "Ghelln"));
 		add(new Carraige(241, 867, "Fenir"));
 		add(new Carraige(640, 270, "Astellon"));
+		add(new Waiter(640, 225));
 
 		for(int i = 0; i < 80; i++){
 			int sx = (random.nextInt(30) + 12) * 16;

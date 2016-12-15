@@ -197,6 +197,8 @@ public class SpriteSheet {
 	public static SpriteSheet Blacksmith_still = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/Blacksmith_still.png", 32, 960);
 	public static SpriteSheet Blacksmith_Shop_still = new SpriteSheet(Blacksmith_still, 0, 0, 1, 30, 32);
 	
+	public static SpriteSheet Counter = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/Counter.png", 32, 16);
+	
 	public static SpriteSheet ArcaneBench = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/ArcaneBench.png", 32, 320);
 	public static SpriteSheet ArcaneBench_1 = new SpriteSheet(ArcaneBench, 0, 0, 1, 10, 32);
 	

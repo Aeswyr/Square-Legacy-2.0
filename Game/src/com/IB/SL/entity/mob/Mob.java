@@ -38,7 +38,7 @@ import com.IB.SL.level.Node;
 import com.IB.SL.level.TileCoord;
 import com.IB.SL.util.Vector2i;
 
-public abstract class Mob extends Entity implements Serializable {
+public abstract  class Mob extends Entity implements Serializable {
 	
 	
 	protected boolean moving = false;

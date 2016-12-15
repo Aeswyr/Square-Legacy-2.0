@@ -2,7 +2,9 @@ package com.IB.SL.entity.inventory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.IB.SL.Game;
@@ -42,8 +44,10 @@ public class Inventory {
 		ITEMS, EQUIPMENT, ABILITIES, QUESTS, CLOSED
 	}
 	
+	//public HashMap<Item, Integer> stackable;
 	public Inventory(int size) {
 		items = new Item[size];
+	//	stackable = new HashMap<Item, Integer>();
 		firstFree = 0; 
 		font8x8 = new font8x8();
 		tab = tab.ITEMS;
@@ -51,15 +55,18 @@ public class Inventory {
 	}
 	
 	
+	
+	
 	public void addByID(Inventory inv, int id) {
+		
+		
+		
 		System.out.println("BEING CALLED WITH AN ID OF " + id);
 		Game.getGame().getLevel().addInvById(inv, id);
 	}
 	
 	
-	
 	public boolean add(Item item) {
-		
 		Game.getGame().save(false);
 		Game.log("ITEM INDEXED " + getItemSlot(item), "InvClass", true);
 

@@ -33,8 +33,8 @@ public class WindowHandler implements WindowListener, FocusListener{
 	
 	@Override
 	public void focusLost(FocusEvent e) {
-		if (game.gameState == game.gameState.INGAME || game.gameState == game.gameState.INGAME_A)
-		game.switchState(game.gameState.PAUSE);	
+	//	if (game.gameState == game.gameState.INGAME || game.gameState == game.gameState.INGAME_A)
+	//	game.switchState(game.gameState.PAUSE);	
 	}
 
 	@Override

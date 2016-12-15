@@ -1003,7 +1003,7 @@ public int deathTimeSec = 0;
     	
     	for (String s : args) {
     		cmdln_args.put(s, true);
-    	}    	
+    	}
     	
 		Game game = new Game();
 		game1 = game;
