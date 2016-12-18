@@ -13,6 +13,7 @@ import com.IB.SL.entity.inventory.item.consumables.AbstractMatter.Tier;
 import com.IB.SL.entity.inventory.item.consumables.HealthPot;
 import com.IB.SL.entity.inventory.item.consumables.InvisPot;
 import com.IB.SL.entity.inventory.item.consumables.ManaPot;
+import com.IB.SL.entity.inventory.item.consumables.RoomKey;
 import com.IB.SL.entity.inventory.item.consumables.StaminaPot;
 import com.IB.SL.entity.inventory.item.equipables.chestpiece.AbyssalArmor;
 import com.IB.SL.entity.inventory.item.equipables.chestpiece.ChaosTunic;
@@ -263,6 +264,7 @@ public class Shop extends Interactable {
 					this.xROffset = -16;
 					this.yROffset = 0;
 					faceframe = 17;
+					ChestInventory.add(new RoomKey(0));
 					break;
 				}
 				//ChestInventory.add(new Coin(Coin.Type.ADVANCED));

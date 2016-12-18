@@ -10,10 +10,8 @@ import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.item.equipables.rings.PreciousRing;
 import com.IB.SL.entity.mob.Player;
 import com.IB.SL.entity.mob.hostile.PoisonZombie;
-import com.IB.SL.entity.mob.hostile.Slime;
 import com.IB.SL.entity.mob.hostile.UndeadCaster;
 import com.IB.SL.entity.mob.hostile.Zombie;
-import com.IB.SL.entity.mob.hostile.minions.Slimey;
 import com.IB.SL.entity.mob.npc.Waiter;
 import com.IB.SL.entity.mob.peaceful.Carraige;
 import com.IB.SL.entity.mob.peaceful.Guard;
@@ -21,6 +19,7 @@ import com.IB.SL.entity.mob.peaceful.Horse;
 import com.IB.SL.graphics.SpriteSheet;
 import com.IB.SL.level.Level;
 import com.IB.SL.level.TileCoord;
+import com.IB.SL.level.interactables.Interactable_Bed;
 import com.IB.SL.level.interactables.Shop;
 import com.IB.SL.level.interactables.Teleporter;
 import com.IB.SL.util.Sound;
@@ -158,6 +157,7 @@ public class MainLevel extends Level{
 		add(new Waiter(675, 222));
 		add(new Shop(667, 218, 4));
 
+		add(new Interactable_Bed(672, 213, 0));
 
 		for(int i = 0; i < 80; i++){
 			int sx = (random.nextInt(30) + 12) * 16;

@@ -1,6 +1,7 @@
 package com.IB.SL.entity.inventory;
 
 import com.IB.SL.entity.Entity;
+import com.IB.SL.entity.mob.Player;
 import com.IB.SL.graphics.Screen;
 
 public class Effect extends Entity {

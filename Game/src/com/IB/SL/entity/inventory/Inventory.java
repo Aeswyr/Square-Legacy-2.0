@@ -2,15 +2,14 @@ package com.IB.SL.entity.inventory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import com.IB.SL.Game;
 import com.IB.SL.entity.inventory.item.Item;
 import com.IB.SL.entity.inventory.item.consumables.AbstractMatter;
 import com.IB.SL.entity.inventory.item.consumables.CoinBag;
+import com.IB.SL.entity.inventory.item.consumables.RoomKey;
 import com.IB.SL.entity.inventory.item.consumables.Ticket;
 import com.IB.SL.entity.mob.Player;
 import com.IB.SL.entity.mob.PlayerMP;
@@ -159,6 +158,10 @@ public class Inventory {
 			
 			if (items[t] instanceof Ticket) {
 				items[t].basicInitialization(((Ticket)items[t]).type);
+			}			
+			
+			if (items[t] instanceof RoomKey) {
+				items[t].basicInitialization(((RoomKey)items[t]).rm);
 			}
 			
 			if (items[t] instanceof CoinBag) {
@@ -429,6 +432,11 @@ public class Inventory {
 		Ticket t = (Ticket)item;
 		Game.getGame().getLevel().add(new Ticket((xp), (yp + 6), 7400, 1, t.type));
 		}
+		
+		if (item instanceof RoomKey) {
+		RoomKey t = (RoomKey)item;
+		Game.getGame().getLevel().add(new RoomKey((xp), (yp + 6), 7400, 1, t.rm));
+		}
 
 		if (sendItemToLevel(item, xp, yp) != null) {				
 			sendItemToLevel(item, xp, yp);
@@ -448,6 +456,12 @@ public class Inventory {
 		if (item instanceof Ticket) {
 			Ticket t = (Ticket)item;
 			Game.getGame().getLevel().add(new Ticket((xp), (yp + 6), 7400, 1, t.type));
+			removeByIndex(index);
+		}
+		
+		if (item instanceof RoomKey) {
+			RoomKey t = (RoomKey)item;
+			Game.getGame().getLevel().add(new RoomKey((xp), (yp + 6), 7400, 1, t.rm));
 			removeByIndex(index);
 		}
 		
@@ -1160,15 +1174,17 @@ public class Inventory {
 		return false;
 	}
 
-	public void removeItemByName(String name) {
+	public boolean removeItemByName(String name) {
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] != null) {
 			if (items[i].name.equalsIgnoreCase(name)) {
-				removeByIndex(i);
+				if (removeByIndex(i))
+					return true;
 				break;
 				}
 			}
 		}
+		return false;
 	}
 	
 	public void removeByRecipe(ArrayList<String> recipe) {

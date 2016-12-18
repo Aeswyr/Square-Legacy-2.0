@@ -69,6 +69,7 @@ public class Player extends Mob implements Serializable{
 	public transient  Tile tile;
 	transient int direction = 0;
 	public int ExpStor;
+	public double expModif = 0;
 	public String[] invString;
 	public String[] equipsString;
 	transient double xOff = 0;

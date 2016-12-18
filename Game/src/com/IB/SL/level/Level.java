@@ -243,8 +243,8 @@ Tile setTiles;
 	public static boolean minimap_enabled;
 	
 	public int radius = 10;
-	int time = 0;
-	        boolean day = false, night = false;
+	public int time = 0;
+    public boolean day = false, night = false;
 	        
 	public Level(int width, int height) {
 		this.width = width;
@@ -1580,7 +1580,7 @@ public void resetLevelPostDeath(Player player) {
         	
     					if (Game.Dead == false && Game.getGame().gameState != gameState.INGAME_A) {
     						Game.getGame().getLevel().getClientPlayer().kills += 1;
-	        				Game.getGame().getLevel().getClientPlayer().ExpC += Exp + ExpV;
+	        				Game.getGame().getLevel().getClientPlayer().ExpC += (Exp + ExpV) * this.getClientPlayer().expModif;
 	        				if (mob.inventory != null) mob.inventory.dropAll();
 	        				}
     						if (mob.hostility != mob.hostility.PASS) {

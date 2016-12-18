@@ -282,7 +282,9 @@ public class Sprite {
 	public static Sprite NullWave = new Sprite(32, 0, 0, SpriteSheet.ability_NullBoss);
 	public static Sprite NullBolt = new Sprite(32, 0, 1, SpriteSheet.ability_NullBoss);
 	
-	
+	public static Sprite WellRested = new Sprite(16, 3, 1, SpriteSheet.Buttons);
+	public static Sprite RoomKey = new Sprite(16, 7, 2, SpriteSheet.Items);
+
 	public static Sprite display_Poison = new Sprite(16, 2, 0, SpriteSheet.Buttons);
 	public static Sprite display_Frozen = new Sprite(16, 7, 0, SpriteSheet.Buttons);
 	
