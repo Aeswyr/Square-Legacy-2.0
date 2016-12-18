@@ -1,6 +1,7 @@
 package com.IB.SL.entity.mob.hostile;
 
 import java.util.List;
+import java.util.Random;
 
 import com.IB.SL.Game;
 import com.IB.SL.Game.gameState;
@@ -21,6 +22,7 @@ public class Zombie extends Mob{
 	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.zombie_up, 16, 16, 3);
 	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.zombie_left, 16, 16, 2);
 	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.zombie_right, 16, 16, 2);
+	
 	private GUI gui;
 	List<Entity> entities;
 	
@@ -45,9 +47,35 @@ public class Zombie extends Mob{
 		this.id = 10;
 		this.name = "Zombie";
 		this.speed = 0.5;
+		this.rarity = 4;
 		this.hostility = HOSTILITY.AGR;
 		sprite = Sprite.playerback;
 		this.effects = new ActiveEffects(7, this);
+		
+		Random rand = new Random();
+		int r = 2;
+			r = rand.nextInt(2);
+			//r = 2;
+		switch (r) {
+		case 0:
+			down = new AnimatedSprite(SpriteSheet.zombie02_down, 16, 16, 3);
+			up = new AnimatedSprite(SpriteSheet.zombie02_up, 16, 16, 3);
+			left = new AnimatedSprite(SpriteSheet.zombie02_left, 16, 16, 2);
+			right = new AnimatedSprite(SpriteSheet.zombie02_right, 16, 16, 2);	
+			break;
+		case 1:
+		down = new AnimatedSprite(SpriteSheet.zombie01_down, 16, 16, 3);
+		up = new AnimatedSprite(SpriteSheet.zombie01_up, 16, 16, 3);
+		left = new AnimatedSprite(SpriteSheet.zombie01_left, 16, 16, 2);
+		right = new AnimatedSprite(SpriteSheet.zombie01_right, 16, 16, 2);	
+		break;
+		case 2:
+			
+		break;
+		default:
+			break;
+		}
+		
 	}
 	
 	

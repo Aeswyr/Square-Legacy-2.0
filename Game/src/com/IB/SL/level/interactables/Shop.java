@@ -77,13 +77,15 @@ import com.IB.SL.util.Sound;
 public class Shop extends Interactable {
 	
 	public static Sprite sprite;
-	boolean added = false;
+	protected boolean added = false;
 	boolean addedNormal = false;
 	private GUI gui;
 	
 	private AnimatedSprite shop1 = new AnimatedSprite(SpriteSheet.Shop_1, 32, 32, 30);
 	private AnimatedSprite shop2 = new AnimatedSprite(SpriteSheet.Shop_2, 32, 32, 30);
 	private AnimatedSprite shop3 = new AnimatedSprite(SpriteSheet.Shop_3, 32, 32, 30);
+	private AnimatedSprite inn = new AnimatedSprite(SpriteSheet.Shop_inn, 32, 32, 30);
+
 	private AnimatedSprite Blacksmith = new AnimatedSprite(SpriteSheet.Blacksmith_Shop, 32, 32, 30);
 	private AnimatedSprite Blacksmith_still = new AnimatedSprite(SpriteSheet.Blacksmith_Shop_still, 32, 32, 30);
 	
@@ -98,6 +100,7 @@ public class Shop extends Interactable {
 	public int type = 0;
 	public int faceframe = 17;
 	public int addTimer = 0;
+	public int xROffset, yROffset;
 	
 	int Page = 0;
 	public ChestInventory P0 = new ChestInventory(16, this);
@@ -137,6 +140,9 @@ public class Shop extends Interactable {
 		ChestInventory.setType(ChestInventory.chestType.Shop);
 		this.gui = new GUI();
 		this.invulnerable = true;
+		
+		this.xROffset = -16;
+		this.yROffset = -8;
 	}
 	
 	
@@ -152,7 +158,7 @@ public class Shop extends Interactable {
 	public void resetShop() {
 		if (type != 3) { 
 		ChestInventory.removeAll();
-		added = false;
+		this.added = false;
 		}
 	}
 	
@@ -250,6 +256,13 @@ public class Shop extends Interactable {
 					animSprite = Artificer;
 					this.ChestInventory.chestType = this.ChestInventory.chestType.Normal;
 //					faceframe = 17;
+					break;
+					
+				case 4:
+					animSprite = inn;
+					this.xROffset = -16;
+					this.yROffset = 0;
+					faceframe = 17;
 					break;
 				}
 				//ChestInventory.add(new Coin(Coin.Type.ADVANCED));
@@ -493,8 +506,9 @@ public class Shop extends Interactable {
 		//int radius = level.radius / 2 + 5;
 		//screen.renderLight((int)x - 34 + radius, (int)y - 30 + radius, 50 - radius, 20, 20, 40);
 			sprite = animSprite.getSprite();
+
 			
-		screen.renderMobSpriteUniversal((int)x - 16, (int)y - 8, sprite);
+		screen.renderMobSpriteUniversal((int)x + xROffset, (int)y + yROffset, sprite);
 	}
 	
 	public void renderGUI(Screen screen) {

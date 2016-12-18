@@ -42,7 +42,6 @@ public class Guard extends Mob{
 	 private int timeUntilPatrol = 299;
 	 private int time_swordSound = 0;
 	 public boolean follower = false;
-	 private int time_Life = 0;
 	 Vector2i start;
 	 Vector2i destination;
 	 
@@ -51,7 +50,7 @@ public class Guard extends Mob{
 	}
 	
 	public Guard(int x, int y, boolean follower) {
-		this.follower = true;
+		this.follower = follower;
 		basicInitialization(x, y, null, null);
 	}
 	 
@@ -112,7 +111,7 @@ public class Guard extends Mob{
 		               if (y > vec.getY() << 4) ya--;
 		            }
 		         }
-		      } else if (players.size() > 0) {
+		      } else if (players.size() > 0 && follower) {
 		    	  xa = 0;
 			         ya = 0;
 			         double px = level.getPlayerAt(0).getX();
@@ -216,16 +215,6 @@ public class Guard extends Mob{
 			this.hurt = false;
 		}
 		
-		if (follower) {
-			time_Life++;
-			
-			if (time_Life > 1000) {
-				level.add(new WallParticleSpawner((int) (x), (int) (y), 50, 20, level));
-				remove();
-			}
-		}
-		
-		
 		players = level.getPlayers(this, 150);
 		
 		if (players.size() > 0) {			
@@ -247,9 +236,7 @@ public class Guard extends Mob{
 		
 	//	if (p1.x() != p2.x() && p2.y() != p1.y()) {
 		if (p1 == null || p2 == null) {
-			if (follower) {
 				follow();				
-			}
 		} else {
 		if (this.dir != dir.RIGHT) {			
 		if (x >= p1.x() && this.x <= this.p2.x() && this.y >= this.p1.y() && this.y <= p1.y()) {

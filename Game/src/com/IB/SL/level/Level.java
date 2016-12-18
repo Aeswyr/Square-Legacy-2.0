@@ -830,9 +830,9 @@ Tile setTiles;
 			items.add((Item) e);
 			System.out.println("ADDING: " + ((Item)e).name);
 		} else {
-			if (!Game.cmdln_args.get("-nospawns")) {				
+		//	if (!Game.cmdln_args.get("-nospawns")) {				
 			entities.add(e);
-			}
+		//	}
 			if (e instanceof Mob) {
 				try {
 				e.maxhealth *= (10 / ( 1 + Math.pow(Math.E, -0.1 * (Game.getGame().getPlayer().Lvl - 40)))) + 1;

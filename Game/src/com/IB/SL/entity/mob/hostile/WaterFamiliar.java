@@ -114,9 +114,9 @@ public class WaterFamiliar extends Mob {
 		               if (x > vec.getX() << 4) xa--;
 		               if (y < vec.getY() << 4) ya++;
 		               if (y > vec.getY() << 4) ya--;
-	      }
-		         }
-	      }
+				}
+			}
+		}
 		 if (xa != 0 || ya != 0) {
 	         move(xa * speed, ya * speed);
 	         walking = true;
@@ -131,6 +131,9 @@ public class WaterFamiliar extends Mob {
 			this.hurt = false;
 		}
 		
+		
+
+		
 		if (maxlife <= 0) {
 			level.add(new WallParticleSpawner((int) (x), (int) (y), 50, 20, level));
 			remove();
@@ -143,9 +146,10 @@ public class WaterFamiliar extends Mob {
         }
 		time++;
 		move();
-		if (walking)
+		if (walking) {
 			animSprite.update();
-		else
+		level.add(new WallParticleSpawner((int) (x), (int) (y), 55, 1, level));
+		} else
 			animSprite.setFrame(0);
 		if (ya < 0) {
 
@@ -156,10 +160,10 @@ public class WaterFamiliar extends Mob {
 			dir = DIRECTION.DOWN;
 		}
 		if (xa < 0) {
-			animSprite = left;
+			//animSprite = left;
 			dir = DIRECTION.LEFT;
 		} else if (xa > 0) {
-			animSprite = right;
+			//animSprite = right;
 			dir = DIRECTION.RIGHT;
 		}
 		

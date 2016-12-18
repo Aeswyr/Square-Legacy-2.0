@@ -19,10 +19,10 @@ import com.IB.SL.level.interactables.Shop;
 
 public class Waiter extends Shop {
 	
-	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.Villager01_down, 16, 16, 3);
-	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.Villager01_up, 16, 16, 3);
-	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.Villager01_left, 16, 16, 2);
-	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.Villager01_right, 16, 16, 2);
+	private AnimatedSprite down = new AnimatedSprite(SpriteSheet.Barmaid_down, 16, 16, 3);
+	private AnimatedSprite up = new AnimatedSprite(SpriteSheet.Barmaid_up, 16, 16, 3);
+	private AnimatedSprite left = new AnimatedSprite(SpriteSheet.Barmaid_left, 16, 16, 2);
+	private AnimatedSprite right = new AnimatedSprite(SpriteSheet.Barmaid_right, 16, 16, 2);
 	final double x_mult = 2;
 	final double y_mult = 1.5;
 	double tick = 0;
@@ -40,7 +40,7 @@ public class Waiter extends Shop {
 	double xa = 0;
 	double ya = 0;
 	
-	boolean added = false;
+//	boolean added = false;
 	boolean addedNormal = false;
 	private GUI gui;
 	
@@ -53,7 +53,7 @@ public class Waiter extends Shop {
 		this.yBound = 6;*/
 
 		this.id = 8;
-		this.name = "Waiter";
+		this.name = "Barmaid";
 		this.maxhealth = 20;
 		this.mobhealth = maxhealth;
 		this.font8x8 = new font8x8();

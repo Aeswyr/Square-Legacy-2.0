@@ -144,6 +144,18 @@ public class SpriteSheet {
 	public static SpriteSheet zombie_left = new SpriteSheet(Zombie, 2, 0, 1, 3, 16);
 	public static SpriteSheet zombie_right = new SpriteSheet(Zombie, 3, 0, 1, 3, 16);
 	
+	public static SpriteSheet zombie01 = new SpriteSheet("/Textures/sheets/00_MobSheets/Aggressive/Generic/zombie01.png", 128, 96);
+	public static SpriteSheet zombie01_down = new SpriteSheet(zombie01, 0, 0, 1, 3, 16);
+	public static SpriteSheet zombie01_up = new SpriteSheet(zombie01, 1, 0, 1, 3, 16);
+	public static SpriteSheet zombie01_left = new SpriteSheet(zombie01, 2, 0, 1, 3, 16);
+	public static SpriteSheet zombie01_right = new SpriteSheet(zombie01, 3, 0, 1, 3, 16);
+	
+	public static SpriteSheet zombie02 = new SpriteSheet("/Textures/sheets/00_MobSheets/Aggressive/Generic/zombie02.png", 128, 96);
+	public static SpriteSheet zombie02_down = new SpriteSheet(zombie02, 0, 0, 1, 3, 16);
+	public static SpriteSheet zombie02_up = new SpriteSheet(zombie02, 1, 0, 1, 3, 16);
+	public static SpriteSheet zombie02_left = new SpriteSheet(zombie02, 2, 0, 1, 3, 16);
+	public static SpriteSheet zombie02_right = new SpriteSheet(zombie02, 3, 0, 1, 3, 16);
+	
 	public static SpriteSheet pzombie_down = new SpriteSheet(PZombie, 0, 0, 1, 3, 16);
 	public static SpriteSheet pzombie_up = new SpriteSheet(PZombie, 1, 0, 1, 3, 16);
 	public static SpriteSheet pzombie_left = new SpriteSheet(PZombie, 2, 0, 1, 3, 16);
@@ -191,7 +203,9 @@ public class SpriteSheet {
 	
 	public static SpriteSheet Shop3 = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/Shop03.png", 32, 960);
 	public static SpriteSheet Shop_3 = new SpriteSheet(Shop3, 0, 0, 1, 30, 32);
-
+	public static SpriteSheet Shop_Inn = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/inn.png", 32, 960);
+	public static SpriteSheet Shop_inn = new SpriteSheet(Shop_Inn, 0, 0, 1, 30, 32);
+	
 	public static SpriteSheet Blacksmith = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/Blacksmith.png", 32, 960);
 	public static SpriteSheet Blacksmith_Shop = new SpriteSheet(Blacksmith, 0, 0, 1, 30, 32);
 	public static SpriteSheet Blacksmith_still = new SpriteSheet("/Textures/sheets/03_WorldGen/Structure/Blacksmith_still.png", 32, 960);
@@ -210,6 +224,24 @@ public class SpriteSheet {
 	public static SpriteSheet Villager01_up = new SpriteSheet(Villager01, 1, 0, 1, 3, 16);
 	public static SpriteSheet Villager01_left = new SpriteSheet(Villager01, 2, 0, 1, 3, 16);
 	public static SpriteSheet Villager01_right = new SpriteSheet(Villager01, 3, 0, 1, 3, 16);
+	
+	public static SpriteSheet Villager02 = new SpriteSheet("/Textures/sheets/00_MobSheets/Neutral/Villager02.png", 128, 96);
+	public static SpriteSheet Villager02_down = new SpriteSheet(Villager02, 0, 0, 1, 3, 16);
+	public static SpriteSheet Villager02_up = new SpriteSheet(Villager02, 1, 0, 1, 3, 16);
+	public static SpriteSheet Villager02_left = new SpriteSheet(Villager02, 2, 0, 1, 3, 16);
+	public static SpriteSheet Villager02_right = new SpriteSheet(Villager02, 3, 0, 1, 3, 16);
+	
+	public static SpriteSheet Villager03 = new SpriteSheet("/Textures/sheets/00_MobSheets/Neutral/Villager03.png", 128, 96);
+	public static SpriteSheet Villager03_down = new SpriteSheet(Villager03, 0, 0, 1, 3, 16);
+	public static SpriteSheet Villager03_up = new SpriteSheet(Villager03, 1, 0, 1, 3, 16);
+	public static SpriteSheet Villager03_left = new SpriteSheet(Villager03, 2, 0, 1, 3, 16);
+	public static SpriteSheet Villager03_right = new SpriteSheet(Villager03, 3, 0, 1, 3, 16);
+	
+	public static SpriteSheet Barmaid = new SpriteSheet("/Textures/sheets/00_MobSheets/Neutral/Barmaid.png", 128, 96);
+	public static SpriteSheet Barmaid_down = new SpriteSheet(Barmaid, 0, 0, 1, 3, 16);
+	public static SpriteSheet Barmaid_up = new SpriteSheet(Barmaid, 1, 0, 1, 3, 16);
+	public static SpriteSheet Barmaid_left = new SpriteSheet(Barmaid, 2, 0, 1, 3, 16);
+	public static SpriteSheet Barmaid_right = new SpriteSheet(Barmaid, 3, 0, 1, 3, 16);
 	
 	public static SpriteSheet Alice = new SpriteSheet("/Textures/sheets/00_MobSheets/Neutral/Alice.png", 128, 96);
 	public static SpriteSheet Alice_down = new SpriteSheet(Alice, 0, 0, 1, 3, 16);

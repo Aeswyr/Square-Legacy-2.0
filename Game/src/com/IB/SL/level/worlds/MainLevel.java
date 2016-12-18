@@ -21,6 +21,7 @@ import com.IB.SL.entity.mob.peaceful.Horse;
 import com.IB.SL.graphics.SpriteSheet;
 import com.IB.SL.level.Level;
 import com.IB.SL.level.TileCoord;
+import com.IB.SL.level.interactables.Shop;
 import com.IB.SL.level.interactables.Teleporter;
 import com.IB.SL.util.Sound;
 
@@ -146,12 +147,17 @@ public class MainLevel extends Level{
 		add(new Guard(615, 228, new TileCoord(601, 228), new TileCoord(636, 228)));
 		add(new Guard(652, 228, new TileCoord(649, 228), new TileCoord(685, 228)));
 		
+		add(new Guard(665, 222, false));
+		add(new Guard(675, 221, false));
+
 		//add(new Teleporter(270, 459));
 		
 		add(new Carraige(840, 170, "Ghelln"));
 		add(new Carraige(241, 867, "Fenir"));
 		add(new Carraige(640, 270, "Astellon"));
-		add(new Waiter(640, 225));
+		add(new Waiter(675, 222));
+		add(new Shop(667, 218, 4));
+
 
 		for(int i = 0; i < 80; i++){
 			int sx = (random.nextInt(30) + 12) * 16;
@@ -177,20 +183,20 @@ public class MainLevel extends Level{
 			}
 		}*/
 		
-		for(int i = 0; i < 530; i++){
+		/*for(int i = 0; i < 530; i++){
 			int sx = (random.nextInt(40) + 15) * 16;
 			int sy = (random.nextInt(40) + 15) * 16;
 			//while(!returnTileXY(tile, sx, sy).solid()) {
 			if(!returnTileXY(tile, sx, sy).solid()) {
 				add(new UndeadCaster(sx, sy));
-			}
+			}*/
 				//sx = 0;
 			//	sy = 0;
 			//}
 			/*	if (!returnTileXY(tile, sx, sy).solid()) {
 
 	         }*/
-		}
+	//	}
 		
 		/*for(int i = 0; i < 100000; i++){
 			int sx = (random.nextInt(31) + 15) * 16;
@@ -203,14 +209,14 @@ public class MainLevel extends Level{
 	         }
 		}*/
 
-		for(int i = 0; i < 500; i++){
+	/*	for(int i = 0; i < 500; i++){
 			int sx = (random.nextInt(30) + 12) * 16;
 			int sy = (random.nextInt(50) + 15) * 16;
 			
 			//while(!returnTileXY(tile, sx, sy).solid()) {
 			if(!returnTileXY(tile, sx, sy).solid()) {
 				add(new Zombie(sx, sy));
-			}
+			}*/
 			
 			
 			//	sx = 0;
@@ -220,13 +226,13 @@ public class MainLevel extends Level{
 			/*if (!returnTileXY(tile, sx, sy).solid()) {
 	         
 			}*/
-		}
+		//}
 
 
 		
 		add(new PreciousRing(638 * 16, 208 * 16, 3000, 1, PreciousRing.slot_HEAD));
 
-		for (int i = 0; i < 50; i++) {
+	/*	for (int i = 0; i < 50; i++) {
 			int sx = (random.nextInt(45) + 10) * 16;
 			int sy = (random.nextInt(45) + 10) * 16;
 		//	while(!returnTileXY(tile, sx, sy).solid()) {
@@ -246,12 +252,12 @@ public class MainLevel extends Level{
 			}
 		//	sx = 0;
 		//	sy = 0;
-			}
+			}*/
 			
 			/*if (!returnTileXY(tile, sx, sy).solid()) {
 
 			}*/
-		}
+	//	}
 		/*for(int i = 0; i < 6000; i++){
 			int sx = (random.nextInt(30) + 12) * 16;
 			int sy = (random.nextInt(50) + 15) * 16;
